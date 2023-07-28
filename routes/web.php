@@ -41,6 +41,9 @@ Route::group(['middleware' => ['auth', 'verified', 'user.type:user']], function 
 Route::group(['middleware' => ['auth', 'verified', 'user.type:pharmacy']], function () {
     Route::get('/prescriptions', [App\Http\Controllers\PrescriptionController::class, 'getPrescriptions'])->name('prescriptions');
     Route::get('/prescription/{id}/quotation/create', [App\Http\Controllers\PrescriptionController::class, 'createQuotation'])->name('quotation.create');
+    Route::get('/getCountry', function () {
+        return view('pages.getCountry');
+    });
 });
 
 //both user can access
